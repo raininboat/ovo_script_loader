@@ -3,7 +3,7 @@
     "author" : "RainyZhou",
     "namespace" : "RainyScriptLoader",
     "message_mode" : "old_string",
-    "version" : "1",
+    "version" : "1.0",
     "svn" : 1,
     "compatible_svn" : 94,
     "priority" : 30000,

@@ -2,7 +2,7 @@
 为轻量级脚本插件设计的 OlivOS 脚本读取托盘
 
 ## 概述
-本仓库仿照 [[Oliva|2]喧闹测试](https://wiki.dice.center/Chaos_Manual.html) （以前 lua 脚本扩展文件）的脚本编写方案，为 OlivOS 提供一个更加易用、更加简洁的脚本开发环境，使得轻量级扩展插件无需过多关注和框架间的交互，将重点放在功能实现上
+本仓库仿照 [[Oliva|2]喧闹测试](https://wiki.dice.center/Chaos_Manual.html) （以前 lua 脚本扩展文件）的脚本编写方案，为 OlivOS 提供一个更加易用、更加简洁的脚本开发环境，使得轻量级扩展插件无需过多关注和框架间的交互，将重点放在功能实现上，实现过程中有参考 [OlivOS 源码](https://github.com/OlivOS-Team/OlivOS)
 
 ## 示例
 一个示例脚本文件：

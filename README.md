@@ -25,6 +25,9 @@
 
 注： 脚本文件中以 _ 开头的项目自动跳过（方便在调试时临时关闭部分脚本文件）
 ~~~
+## 相关依赖项
+[OlivaDiceCore](https://github.com/OlivOS-Team/OlivaDiceCore) 非必须
+如果不存在则其中部分功能将不可用
 
 ## 传入参数
 ### msg

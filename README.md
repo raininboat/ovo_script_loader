@@ -110,7 +110,7 @@ api.fDownWebPage(path)
 
  ======
 
-下方所有的功能需要 OlivOS Dice Core 模块支持
+下方所有的功能需要 Oliva Dice Core 模块支持
 #### draw
 #### rd
 #### getPcSkill

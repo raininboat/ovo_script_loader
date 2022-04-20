@@ -1,3 +1,20 @@
+""" 
+    Script Loader - 轻量级插件托盘 for OlivOS
+    Copyright (C) 2022  Rainy Zhou
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+"""
 import script_loader
 import os
 import sys
@@ -24,8 +41,11 @@ class Loader:        # 脚本载入运行模块，参考 OlivOS/pluginAPI.py
         self.loadDictAll()
 
     def loadDictAll(self):
+
         dir_root = script_loader.data.data_root
         sys.path.append(dir_root+"/lib")
+        sys.path.append(dir_root)
+        print(sys.path)
         plugin_lst = os.listdir(dir_root+"/script")
         if "__pycache__" in plugin_lst:
             plugin_lst.remove("__pycache__")

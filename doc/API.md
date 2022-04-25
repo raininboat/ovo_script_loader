@@ -42,7 +42,7 @@ def my_func(msg, api): ...
 | str | list | 消息中由正则表达式匹配到的信息列表 | [] |
 | platform | str | 消息来源平台信息,例如 qq, telegram | None |
 | msg_type | int | 消息类型 0 为 私聊消息，1 为群聊消息 | None |
-| self_id | ID (str) | 机器人 id | None |
+| self_id | ID (int) | 机器人 id | None |
 | self_hash | str | 机器人 account hash | None |
 | user_id | ID (str) | 用户ID | None |
 | group_id | ID (str) | 群聊ID | None |

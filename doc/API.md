@@ -20,8 +20,10 @@ COMMAND[Regex] = Func
 | COMMAND | dict | 所有暴露给托盘的指令映射 | 本项为必填项 |
 | Regex | str | 所有指令响应的正则表达式 | 本项为必填项 |
 | Func | callable | 指令对应的处理函数 | 本项为必填项 |
+
 托盘接收到符合 `Regex` 正则表达式的消息事件后，运行 `Func` 函数
 注：和 `[Oliva|2]喧闹测试` 不同，此处的 `Func` 函数并不是函数名称的字符串，而是直接设置为对应的函数
+
 以下为正确的设置:
 ~~~python
 def my_func(msg, api): ...
@@ -384,4 +386,4 @@ rv = api.set_card_name("人物卡1", pc_hash=pc_hash)
 ## 其他信息
 脚本文件所需导入的lib可以摆放在 ./plugin/data/ScriptLoad/lib 文件夹中
 
-api文档结束■
+■

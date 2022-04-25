@@ -13,7 +13,7 @@ jobs:
       - name: Pack
         run: |
           if [ ! $PACK_NAME ]; then
-              PACK_NAME=${GITHUB_REPOSITORY##*/} 
+              PACK_NAME= "script_loader" 
           fi
           echo "PACK_NAME=$PACK_NAME" >> $GITHUB_ENV
           cd $PACK_NAME

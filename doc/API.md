@@ -43,7 +43,14 @@ def my_func(msg, api): ...
 | platform | str | 消息来源平台信息,例如 qq, telegram | None |
 | msg_type | int | 消息类型 0 为 私聊消息，1 为群聊消息 | None |
 | self_id | ID (str) | 机器人 id | None |
-| self_id | str | 机器人 id | None |
+| self_hash | str | 机器人 account hash | None |
+| user_id | ID (str) | 用户ID | None |
+| group_id | ID (str) | 群聊ID | None |
+| host_id | ID (str) | 频道ID（用于特定平台） | None |
+| target_id | ID (str) | 群聊中则为 群聊ID，私聊则为 用户ID | None |
+| user_info | int | 用户信息，0为私聊，1为群员，2为管理员，3为群主 | None |
+| sender | dict | 发送者具体信息，详见 onebot 协议 和 OlivOS 框架 | {} |
+| flag_is_master | bool | 框架如安装 OlivaDiceCore 插件，则返回当前用户是否为 OlivaDiceCore 管理员 | None |
 | flag_has_olivadice | bool | 框架是否安装 OlivaDiceCore 插件 | None |
 
 

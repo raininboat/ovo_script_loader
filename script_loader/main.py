@@ -17,7 +17,7 @@
 """
 import script_loader
 
-class Event(object):
+class Event(object):    # pylint: disable=all
     def init(plugin_event, Proc):
         script_loader.other_misc.set_logger(Proc.log)
         script_loader.loader.script_load()

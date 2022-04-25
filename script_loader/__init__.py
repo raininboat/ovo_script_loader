@@ -22,6 +22,9 @@ try:
 except ImportError:
     FLAG_HAS_OVODICE = False
 
+SCRIPT_LOADER_SVN = 3
+SCRIPT_LOADER_VERSION = "1.2.1"
+
 import script_loader.main
 import script_loader.script_api
 import script_loader.data

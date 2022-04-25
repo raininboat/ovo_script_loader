@@ -31,6 +31,7 @@ def mkdir(path):
 
 class Loader:        # 脚本载入运行模块，参考 OlivOS/pluginAPI.py
     def __init__(self):
+        self.str_trans = {92:"\\", 123: r"{{", 125: r"}}"}
         dir_root = script_loader.data.data_root
         mkdir(dir_root)
         mkdir(dir_root+"/script")
@@ -45,7 +46,6 @@ class Loader:        # 脚本载入运行模块，参考 OlivOS/pluginAPI.py
         dir_root = script_loader.data.data_root
         sys.path.append(dir_root+"/lib")
         sys.path.append(dir_root)
-        print(sys.path)
         plugin_lst = os.listdir(dir_root+"/script")
         if "__pycache__" in plugin_lst:
             plugin_lst.remove("__pycache__")
@@ -66,20 +66,24 @@ class Loader:        # 脚本载入运行模块，参考 OlivOS/pluginAPI.py
                 if hasattr(script_tmp, "COMMAND"):
                     command_dict = script_tmp.COMMAND
                     self.script_data_all[file] = command_dict
+                    cmd_dict_this = {}
                     for restr, cmd_func in script_tmp.COMMAND.items():
                         # recompile = re.compile(restr)
-                        self.script_message_command[restr] = cmd_func
-                self.log.info("Script load [{0}]:\n{1}".format(
-                        file,
-                        "\n".join(command_dict.keys())
-                    ))
+                        cmd_dict_this[restr] = cmd_func
+                    a = [f"{i}: {str(j).translate(self.str_trans)}" for i, j in enumerate(command_dict.keys(), 1)]
+                    self.log.info("Script load [{0}]:\n{1}".format(
+                            file,
+                            "\n".join(a)
+                        ))
             except Exception as err:
                 self.log.error(
-                    "Script load [{0}] skiped:{1}\n{2}".format(
+                        "Script load [{0}] skiped:{1}\n{2}",
                         file,
                         str(err),
                         traceback.format_exc()
-                    ))
+                    )
+            else:
+                self.script_message_command.update(cmd_dict_this)     #[restr] = cmd_func
 
     def run(self, plugin_event, proc):
         success = True
@@ -98,14 +102,10 @@ class Loader:        # 脚本载入运行模块，参考 OlivOS/pluginAPI.py
                 break
                 # self.script_message_command[restr] = cmd_func
         except Exception as err:
-            success = False
             err_tcb = traceback.format_exc()
+            success = False
             err_str = str(err)
-            self.log.error(
-                "Script runtime error:{0}\n{1}".format(
-                    err_str,
-                    err_tcb
-                ))
+            self.log.error(f"Script runtime error:{err_str}\n{err_tcb}")
         if not success:
             raise script_loader.other_misc.ScriptRuntimeError(
                 err_str,
@@ -120,5 +120,5 @@ def msg_run(plugin_event, Proc):
     try:
         script_all.run(plugin_event, Proc)
     except script_loader.other_misc.BasicScriptException as err:
-        err_str, tcb =  err.args
+        err_str, tcb = err.args
         plugin_event.reply(f"script error occurred: {err_str}\n{tcb}")

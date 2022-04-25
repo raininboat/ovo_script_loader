@@ -1,11 +1,11 @@
 {
     "name" : "ScriptLoader",
     "author" : "RainyZhou",
-    "namespace" : "RainyScriptLoader",
+    "namespace" : "script_loader",
     "message_mode" : "old_string",
-    "version" : "1.1",
-    "svn" : 2,
-    "compatible_svn" : 94,
+    "version" : "1.2.1",
+    "svn" : 3,
+    "compatible_svn" : 95,
     "priority" : 30000,
     "support" : [
         {

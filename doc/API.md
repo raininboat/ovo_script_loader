@@ -58,7 +58,7 @@ def my_func(msg, api): ...
 ### api
 `api` 为实现的功能
 
-=======
+ =======
 
 其中有如下成员：
 #### flag_has_olivadice
@@ -84,7 +84,7 @@ OlivOS 框架事件 plugin_event
 | script_loader_svn | int | Script Loader 的 svn 版本号 | - |
 | script_loader_version | str | Script Loader 的版本字符串(如 '1.2.3') | - |
 
-=======
+ =======
 
 内含如下接口方法:
 #### log
@@ -93,9 +93,9 @@ OlivOS 框架事件 plugin_event
 api.log.info("这是一条示例信息{0},{1},{kwarg0},{kwarg1}", arg0, arg1,kwarg0=kwarg0,kwarg1=kwarg1)
 ~~~
 具体如下:
-> 通过 api.log.xxx() 发送时，第一个参数为 log 字符串，后面可以接任意不定参数，用于作为 log 字符串中 {x}  变量的值
-> 如果仅有一个参数，则不会进行 format 操作(用于打印含有 {} 的信息)
-> 直接 api.log() 发送时，等同于在框架中调用 Proc.log()
+- 通过 api.log.xxx() 发送时，第一个参数为 log 字符串，后面可以接任意不定参数，用于作为 log 字符串中 {x}  变量的值
+- 如果仅有一个参数，则不会进行 format 操作(用于打印含有 {} 的信息)
+- 直接 api.log() 发送时，等同于在框架中调用 Proc.log()
 
 #### reply
 原路返回一条消息
@@ -120,17 +120,17 @@ api.send(send_type, target_id, message, host_id)
 | message | str | 所需要发送的消息 | 本项必填 |
 | host_id | str | 在含有多层群聊嵌套的平台中(如 dodo、qq频道 )为最外层群聊号，具体详见 OlivOS 框架文档 | None |
 注：
-> 当 send_type 为 字符串 时, 可用内容为 'private' 或 'group' （具体详见 OlivOS 框架）
-> 当 send_type 为 数字 时， 0 代表 私聊， 1 代表 群聊 
-> host_id 主要用于平台消息，具体而言 若 传入参数 msg 中 群聊信息 host_id 不为 None，则必填
+- 当 send_type 为 字符串 时, 可用内容为 'private' 或 'group' （具体详见 OlivOS 框架）
+- 当 send_type 为 数字 时， 0 代表 私聊， 1 代表 群聊 
+- host_id 主要用于平台消息，具体而言 若 传入参数 msg 中 群聊信息 host_id 不为 None，则必填
 ~~~python
 # 向 id 为 12345 的 用户 私聊发送一条内容为 测试消息 的消息
-api.send("private", 12345, "测试消息") 
-api.send(0, 12345, "测试消息")      # 这样写也可以
-
+api.send("private", "12345", "测试消息") 
+api.send(0, "12345", "测试消息")      # 这样写也可以
+#
 # 向 id 为 12345 的 群组 发送一条内容为 测试消息 的消息
-api.send("group", 12345, "测试消息") 
-api.send(1, 12345, "测试消息")      # 这样写也可以
+api.send("group", "12345", "测试消息") 
+api.send(1, "12345", "测试消息")      # 这样写也可以
 ~~~
 
 #### md5
@@ -170,7 +170,7 @@ api.web_download(url, path)
 | url | str | 访问网站的 url | 本项必填 |
 | path | str | 保存路径 | 本项必填 |
 
-======
+ ======
 
 下方所有的功能需要 OlivOS Dice Core 模块支持
 #### draw
@@ -221,7 +221,7 @@ rv = api.get_pc_hash(uid, platform)
 | uid | str | 用户uid | 本项必填 |
 | platform | str | 平台信息（如 'dodo', 'qq'） | None |
 注：
-> 如果 platform 为空，则默认为当前消息事件来源平台
+- 如果 platform 为空，则默认为当前消息事件来源平台
 
 #### get_card_data
 返回 OlivaDiceCore 中用户人物卡数据
@@ -246,7 +246,7 @@ pc_hash = api.get_pc_hash("12345", 'qq')
 rv = api.get_card_data(pc_hash=pc_hash)
 ~~~
 返回值：
-> 一个{技能名: 技能值} 形式的键值对，为 pc 当前选中人物卡
+- 一个{技能名: 技能值} 形式的键值对，为 pc 当前选中人物卡
 
 #### get_pc_skill
 返回 OlivaDiceCore 中用户人物技能
@@ -273,7 +273,7 @@ pc_hash = api.get_pc_hash("12345", 'qq')
 rv = api.get_pc_skill('test', pc_hash=pc_hash)
 ~~~
 返回值：
-> 技能数值，默认值为 0 
+- 技能数值，默认值为 0 
 
 #### set_pc_skill
 返回 OlivaDiceCore 中用户人物技能
@@ -304,7 +304,7 @@ pc_hash = api.get_pc_hash("12345", 'qq')
 rv = api.set_pc_skill('test', 1, pc_hash=pc_hash)
 ~~~
 返回值：
-> 恒为True
+- 恒为True
 
 #### get_card_name
 返回 OlivaDiceCore 中用户人物卡名称
@@ -330,7 +330,7 @@ pc_hash = api.get_pc_hash("12345", 'qq')
 rv = api.set_pc_skill(pc_hash=pc_hash)
 ~~~
 返回值：
-> 对应人物卡名称 str
+- 对应人物卡名称 str
 
 #### switch_card
 切换 OlivaDiceCore 中用户人物卡
@@ -388,9 +388,8 @@ rv = api.set_card_name("人物卡1", pc_hash=pc_hash)
 - 如果成功则为 True
 - 如果失败则为 False
 
-======
+ ======
 
 ## 其他信息
 脚本文件所需导入的lib可以摆放在 ./plugin/data/ScriptLoad/lib 文件夹中
-
 ■

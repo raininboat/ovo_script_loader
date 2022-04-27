@@ -7,7 +7,9 @@
 ## 示例
 一个示例脚本文件：
 
-![EFQC0D3YPJUZB`CIJNBZ$DU](https://user-images.githubusercontent.com/74845844/163611782-1f58f683-8670-46d2-a921-7247364850b8.png)
+![}TMQCK42 $`~{VCDG0 5T)Q](https://user-images.githubusercontent.com/74845844/165539506-72f96c9d-7471-4d13-ace5-8899b7e7d6be.png)
+![4FOJWTMOP}7FX9K) B3ME%S](https://user-images.githubusercontent.com/74845844/165539524-534a0eaa-5b5e-4f74-bf62-01f5ed622584.png)
+
 
  ======
 如图所示，`COMMAND` 为所有映射到插件的功能函数，用正则形式匹配， `msg` 为所有关于本条消息的信息（类似 `喧闹测试` 中的 `Msg`）

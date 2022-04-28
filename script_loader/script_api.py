@@ -137,12 +137,15 @@ class PluginAPI:
     # def urlDecode(self, string):
     #     return urllib.parse.unquote(string)
 
-    def web_download(self, url, path):
+    def web_download(self, url, path, kwargs=None):
         "获取 url 内容，保存到指定目录中"
-        r = requests.get(url=url)
-        with open(path, mode="w", encoding=r.encoding) as file:
-            file.write(r.text)
+        if kwargs is None:
+            kwargs = {}
+        r = requests.get(url=url, **kwargs)
+        with open(path, mode="wb") as file:
+            file.write(r.content)
         self.log.trace(f"api.web_download\n{url} - {path}")
+        return r.status_code
 
     # NOTE: 以下功能需要 OlivOS Dice Core 模块支持
     def draw(self, deck):
